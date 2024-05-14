@@ -1,13 +1,18 @@
 #define LILYGO_T5_V213
 
 #include <WiFi.h>
-#include <boards.h>
 #include <GxEPD.h>
 #include <GxDEPG0213BN/GxDEPG0213BN.h>
 #include <GxIO/GxIO_SPI/GxIO_SPI.h>
 #include <GxIO/GxIO.h>
 #include <HTTPClient.h>
 #include <ArduinoJson.h>
+
+// Define the pins for the e-paper display
+#define EPD_CS 5
+#define EPD_DC 17
+#define EPD_RSET 16
+#define EPD_BUSY 4
 
 GxIO_Class io(SPI, EPD_CS, EPD_DC, EPD_RSET);
 GxEPD_Class display(io, /*RST=*/ EPD_RSET, /*BUSY=*/ EPD_BUSY);
